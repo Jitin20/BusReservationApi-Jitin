@@ -84,6 +84,7 @@ namespace BusReservation.Controllers
                 try
                 {
                     var data = db.AdminCredentials.Where(admin => admin.Email == email && admin.Password == password).FirstOrDefault();
+                    //password = Convert.ToBase64String(Encoding.UTF8.GetBytes(password));
                     if (data != null)
                     {
                         return Ok(data);
@@ -98,8 +99,9 @@ namespace BusReservation.Controllers
                     return BadRequest(ex.InnerException.Message);
                 }
             }
+            
             return BadRequest("Something Went Wrong");
-            password = Convert.ToBase64String(Encoding.UTF8.GetBytes(password));
+           
         }
 
 
