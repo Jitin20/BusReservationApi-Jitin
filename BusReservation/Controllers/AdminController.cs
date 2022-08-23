@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 
 namespace BusReservation.Controllers
 {
@@ -35,6 +36,9 @@ namespace BusReservation.Controllers
 
         //Get api/adminSignincontroller
         //to get all the details
+
+      
+
         [HttpGet]
         [Route("list")]
 
@@ -68,12 +72,14 @@ namespace BusReservation.Controllers
                 return BadRequest(ex.InnerException.Message);
             }
         }
+        
 
         [HttpPost]
         [Route("Validate")]
         public IActionResult PostAdmin(string email, string password)
         {
-            if(ModelState.IsValid)
+           
+            if (ModelState.IsValid)
             {
                 try
                 {
@@ -93,6 +99,7 @@ namespace BusReservation.Controllers
                 }
             }
             return BadRequest("Something Went Wrong");
+            password = Convert.ToBase64String(Encoding.UTF8.GetBytes(password));
         }
 
 
