@@ -30,13 +30,12 @@ namespace BusReservation.Controllers
 
         //Get api/adminSignincontroller
         //to get all the details
-        [HttpGet]
-        [Route("list")]
-        public IActionResult GetAdmin()
-        {
-            
-        }
+        //[HttpGet]
+        //[Route("list")]
+
+
+
+
 
     }
-
 }
